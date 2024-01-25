@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block name %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <p>Наименование поставщика: {{ object.title }}</p>
+    <p>ФИО представителя
+        поставщика:
+        {{ supplier_page.representative_lastname }}
+        {{ supplier_page.representative_firstname }}
+        {{ supplier_page.representative_patronymic }}
+    </p>
+
+    {% if perms.electronicAccessories.change_supplier %}
+        <a href="{% url 'update_supplier_view' object.pk %}" style="background: crimson">Редактировать</a><br>
+    {% endif %}
+
+    {% if perms.electronicAccessories.delete_supplier %}
+
+        <form method="post" action="{% url 'delete_supplier_view' object.pk %}">
+            {% csrf_token %}
+            <input type="submit" style="background: mediumslateblue" value="Удалить">
+        </form>
+    {% endif %}
+
+    <a href="{% url 'list_supplier_view' %}" class="info" style="">Назад</a><br>
+
+
+{% endblock %}
+

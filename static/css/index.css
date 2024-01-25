@@ -1,0 +1,20 @@
+.info {
+    background: darkviolet; color: azure
+}
+
+.img_icon {
+    width: 260px;
+}
+
+
+
+.card_img {
+    width: 260px;
+}
+
+.card_title_style {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1rem;
+    margin-bottom: 20px;
+}

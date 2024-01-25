@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block name %}
+Редактирование товара: {{ laptop_item.title }}
+{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Сохранить">
+</form>
+
+<a href="{% url 'one_laptop' laptop_id=laptop_item.pk %}" class="info" style="">Отменить</a>
+
+{% endblock %}

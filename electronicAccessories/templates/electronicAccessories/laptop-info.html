@@ -1,0 +1,33 @@
+
+
+{% extends 'base.html' %}
+
+{% block name %}
+    {{ laptop_item.title }}
+
+{% endblock %}
+
+{% block content %}
+    <p>Наименование: {{ laptop_item.title }}</p>
+    <p>Описание: {{ laptop_item.description }}</p>
+    <p>Фотография: {{ laptop_item.photo }}</p>
+    <p>Цена: {{ laptop_item.price }}</p>
+    <p>Диагональ: {{ laptop_item.diagonal }}</p>
+    <p>Объем SSD: {{ laptop_item.SSD_Volume }}</p>
+    <p>Дата создания: {{ laptop_item.date_create }}</p>
+    <p>Дата обновления: {{ laptop_item.date_update }}</p>
+
+    <div class="container">
+        <form method="post" action="{% url 'add_basket_product' laptop_item.pk%}">
+            {% csrf_token %}
+            {{ basket_form}}
+            <input type="submit" class="btn btn-success" value="Добавить в корзину">
+        </form>
+    </div>
+
+    <a href="{% url 'laptop_update' laptop_id=laptop_item.pk %}" class="info">Редактировать</a>
+    <a href="{% url 'laptop_delete' laptop_id=laptop_item.pk %}" class="info">Удалить</a>
+    <a href="{% url 'laptop_list' %}" class="info" style="">Назад</a>
+
+{% endblock %}
+

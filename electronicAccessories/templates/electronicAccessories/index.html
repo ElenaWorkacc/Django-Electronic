@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block name %}
+Laptop inc
+{% endblock %}
+
+{% block content %}
+
+    {% load static %}
+    <h1>Hello template electronic</h1>
+    <a href="{% url 'laptop_list' %}" class="btn btn-primary">Каталог ноутбуков</a>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block name %}
+    Регистрация
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.as_div }}
+
+            <input type="submit" class="btn btn-primary" value="Зарегистрироваться">
+        </form>
+
+    <a class="btn btn-warning" href="{% url 'auth' %}">Назад</a>
+    </div>
+{% endblock %}

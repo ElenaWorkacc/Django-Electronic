@@ -1,0 +1,33 @@
+{% load static %}
+
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div class="col-md-3 mb-2 mb-md-0">
+            <a href="{% url 'laptop_index' %}" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <img src="{% static 'image/icon.jpg' %}" class="card-img-top img_icon" alt="photo"
+                     style="width: 55px; height: 35px; border-radius: 4px;">
+            </a>
+        </div>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="{% url 'laptop_index' %}" class="nav-link px-2 link-secondary">Домашняя страница</a></li>
+            <li><a href="{% url 'laptop_list' %}" class="nav-link px-2">Список ноутбуков</a></li>
+            <li><a href="{% url 'laptop_add' %}" class="nav-link px-2">Добавить ноутбук</a></li>
+            <li><a href="{% url 'list_supplier' %}" class="nav-link px-2">Поставщики</a></li>
+            <li><a href="{% url 'send_email' %}" class="nav-link px-2">Отправить сообщение</a></li>
+        </ul>
+
+        <div class="col-md-3 text-end">
+
+            {% if request.user.is_anonymous %}
+                <a class="btn btn-outline-primary me-2" href="{% url 'auth' %}">Авторизация</a>
+                <a type="button" class="btn btn-primary" href="{% url 'registr' %}">Регистрация</a>
+            {% else %}
+                <a type="button" class="btn btn-primary" href="{% url 'list_basket_product' %}">Корзина</a>
+                <a type="button" class="btn btn-primary" href="{% url 'logout' %}">Выйти</a>
+
+            {% endif %}
+
+        </div>
+    </header>
+</div>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block name %}
+Удаление: {{ laptop_item.title }}
+{% endblock %}
+
+{% block content %}
+<p>Вы действительно хотите удалить товар?"{{ laptop_item.title }}"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="Да, удалить">
+  <a href="{% url 'one_laptop' laptop_id=laptop_item.pk %}" class="info">Отмена</a>
+</form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block name %}
+Добавление ноутбука
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input class="btn btn-info" type="submit" value="Добавить ноутбуки">
+</form>
+{% endblock %}
